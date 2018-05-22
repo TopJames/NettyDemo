@@ -31,11 +31,12 @@ public class Server {
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
+                        System.out.println("server init child Handler1");
                         ByteBuf bb= Unpooled.copiedBuffer("*%".getBytes());
                         socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,bb));
                         socketChannel.pipeline().addLast(new StringDecoder());
-                        socketChannel.pipeline().addLast(new Handler1());
                         socketChannel.pipeline().addLast(new Handler2());
+                        socketChannel.pipeline().addLast(new Handler1());
                     }
                 });
 

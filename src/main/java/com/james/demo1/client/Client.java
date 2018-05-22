@@ -29,6 +29,7 @@ public class Client {
                         ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,bb));
                         ch.pipeline().addLast(new StringDecoder());
                         ch.pipeline().addLast(new ClientHandler1());
+                        ch.pipeline().addLast(new ClientHandler2());
                     }
                 });
 

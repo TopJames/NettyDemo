@@ -2,12 +2,11 @@ package com.james.demo1.client;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.ReferenceCountUtil;
 
 /**
  * Created by Zhan on 2018/5/13.
  */
-public class ClientHandler1 extends ChannelHandlerAdapter {
+public class ClientHandler2 extends ChannelHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("client active!!!!");
@@ -16,15 +15,11 @@ public class ClientHandler1 extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         String res=(String)msg;
-        System.out.println("reveived:"+res);
+        System.out.println("reveived2:"+res);
 
  //       throw new RuntimeException("this is some exception.");
 
-        ReferenceCountUtil.release(msg);
-
-        ctx.fireChannelRead(msg);
-
-
+   //     ReferenceCountUtil.release(msg);
     }
 
     @Override

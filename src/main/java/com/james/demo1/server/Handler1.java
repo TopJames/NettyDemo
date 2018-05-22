@@ -15,6 +15,7 @@ public class Handler1 extends ChannelHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println("this is handler1");
         String req=(String)msg;
         System.out.println("received:"+req);
         String res="Server has received "+req+"$%";
